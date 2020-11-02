@@ -140,8 +140,8 @@ class _MyHomePageState extends State<MyHomePage> {
             countryData == null
                 ? Center(
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
                       children: [
                         SizedBox(height: 10.0),
                         LinearProgressIndicator(),
@@ -151,9 +151,21 @@ class _MyHomePageState extends State<MyHomePage> {
                           style: TextStyle(fontSize: 12),
                         )
                       ],
-                  ),
-                    ))
+                    ),
+                  ))
                 : MostEffectCountry(countryData: countryData),
+            SizedBox(height: 20.0),
+            InfoPanel(),
+            SizedBox(height: 20.0),
+            Center(
+                child: Text(
+              'WE ARE TOGETHER IN THE FIGHT',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.4,
+                  color: Colors.grey[800]),
+            )),
+            SizedBox(height: 20.0),
           ],
         ),
       ),
