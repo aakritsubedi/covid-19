@@ -446,7 +446,7 @@ class ProvinceWidget extends StatelessWidget {
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, childAspectRatio: 1),
+                    crossAxisCount: 3, childAspectRatio: 1),
                 children: [
               ProvinceCard(
                   provinceNo: '1',
@@ -479,7 +479,7 @@ class ProvinceWidget extends StatelessWidget {
                   recovered: provinceData['recovered'][5]['count'].toString(),
                   deaths: provinceData['deaths'][5]['count'].toString()),
               ProvinceCard(
-                  provinceNo: '1',
+                  provinceNo: '7',
                   active: provinceData['cases'][6]['count'].toString(),
                   recovered: provinceData['recovered'][6]['count'].toString(),
                   deaths: provinceData['deaths'][6]['count'].toString()),
@@ -508,38 +508,47 @@ class ProvinceCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            'Province $provinceNo',
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 18,
-                color: Colors.grey[800],
-                letterSpacing: 1.2),
-          ),
-          Text(
-            'Deaths: $deaths',
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 12,
-                color: Colors.grey[800]),
-          ),
-          Text(
-            'Cases: $active',
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 12,
-                color: Colors.grey[800]),
-          ),
-          Text(
-            'Recovered: $recovered',
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 12,
-                color: Colors.grey[800]),
+          Padding(
+              padding: EdgeInsets.symmetric(vertical: 5.0),
+              child: Column(
+                children: [
+                Text(
+                  'Deaths: $deaths',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                      color: Colors.grey[800]),
+                ),
+                Text(
+                  'Cases: $active',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                      color: Colors.grey[800]),
+                ),
+                Text(
+                  'Recovered: $recovered',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                      color: Colors.grey[800]),
+                ),
+              ])),
+          Divider(height: 1.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Text(
+              'Province $provinceNo',
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: Colors.grey[700],
+                  letterSpacing: 1.2),
+            ),
           ),
         ],
       ),

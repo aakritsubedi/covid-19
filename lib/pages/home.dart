@@ -112,7 +112,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.pin_drop_outlined),
+                      Image.network('https://disease.sh/assets/img/flags/np.png', height: 30.0, width: 30.0,),
                       Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: Text(
