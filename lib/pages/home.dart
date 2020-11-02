@@ -1,3 +1,4 @@
+import 'package:covid19/widgets.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -13,7 +14,35 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: Center(child: Text(widget.title))),
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Quotes(),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                vertical: 10.0,
+                horizontal: 10.0
+              ),
+              child: Row(
+                children: [
+                  Icon(Icons.public),
+                  Padding(
+                    padding: const EdgeInsets.only( left: 10),
+                    child: Text('Worldwide',
+                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            WorldWidePanel()
+          ],
+        ),
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-Color primaryBlack = Color(0xFF202cb3);
+Color primaryBlack = Color(0xFF152238);
+Color quoteContainer = Colors.orange[100];
 
 class DataSource {
   static String quotes =

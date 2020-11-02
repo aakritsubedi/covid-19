@@ -1,3 +1,4 @@
+import 'package:covid19/datasource.dart';
 import 'package:flutter/material.dart';
 
 import 'package:covid19/pages/home.dart';
@@ -7,17 +8,16 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Covid 19 Tracker',
-      debugShowCheckedModeBanner: false,
+      // debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+        fontFamily: 'CircularStd',
+        primaryColor: primaryBlack
       ),
-      home: MyHomePage(title: 'Covid 19 Tracker App'),
+      home: MyHomePage(title: 'Covid-19 Tracker App'),
     );
   }
 }
