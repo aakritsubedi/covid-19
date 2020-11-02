@@ -21,4 +21,11 @@ class CovidInfo {
     return nepalData;
   } 
 
+  static Future<List> fetchCountryWiseData () async {
+    http.Response response = await http.get(nepalBaseUrl+'data/world');
+    List countryData = json.decode(response.body);
+    countryData.removeRange(0,2);
+    return countryData;
+  } 
+
 }

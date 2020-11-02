@@ -78,36 +78,59 @@ class NepalPanel extends StatelessWidget {
 class StatusTable extends StatelessWidget {
   final Map nepalStatistics;
 
-  const StatusTable({
-    Key key, this.nepalStatistics
-  }) : super(key: key);
+  const StatusTable({Key key, this.nepalStatistics}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.symmetric(
-            vertical: 5.0
-          ),
+          margin: EdgeInsets.symmetric(vertical: 5.0),
           child: Table(children: [
             TableRow(children: [
-              TableCell(child: Center(child: Column(
+              TableCell(
+                  child: Center(
+                      child: Column(
                 children: [
-                  Text(nepalStatistics['tested_positive'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
-                  Text('Positive', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey)),
+                  Text(
+                    nepalStatistics['tested_positive'].toString(),
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  Text('Positive',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey)),
                 ],
               ))),
-              TableCell(child: Center(child: Column(
+              TableCell(
+                  child: Center(
+                      child: Column(
                 children: [
-                  Text(nepalStatistics['tested_negative'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
-                  Text('Negative', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey)),
+                  Text(
+                    nepalStatistics['tested_negative'].toString(),
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  Text('Negative',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey)),
                 ],
               ))),
-              TableCell(child: Center(child: Column(
+              TableCell(
+                  child: Center(
+                      child: Column(
                 children: [
-                  Text(nepalStatistics['tested_total'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
-                  Text('Total', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey)),
+                  Text(
+                    nepalStatistics['tested_total'].toString(),
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  Text('Total',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey)),
                 ],
               ))),
             ]),
@@ -116,22 +139,49 @@ class StatusTable extends StatelessWidget {
         SizedBox(height: 30.0),
         Table(children: [
           TableRow(children: [
-            TableCell(child: Center(child: Column(
+            TableCell(
+                child: Center(
+                    child: Column(
               children: [
-                Text(nepalStatistics['in_isolation'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
-                Text('Isolation', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey)),
+                Text(
+                  nepalStatistics['in_isolation'].toString(),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                Text('Isolation',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey)),
               ],
             ))),
-            TableCell(child: Center(child: Column(
+            TableCell(
+                child: Center(
+                    child: Column(
               children: [
-                Text(nepalStatistics['recovered'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
-                Text('Recovered', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey)),
+                Text(
+                  nepalStatistics['recovered'].toString(),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                Text('Recovered',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey)),
               ],
             ))),
-            TableCell(child: Center(child: Column(
+            TableCell(
+                child: Center(
+                    child: Column(
               children: [
-                Text(nepalStatistics['deaths'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
-                Text('Deaths', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey)),
+                Text(
+                  nepalStatistics['deaths'].toString(),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                Text('Deaths',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey)),
               ],
             ))),
           ]),
@@ -178,6 +228,61 @@ class StatusPanel extends StatelessWidget {
                 fontWeight: FontWeight.w400, fontSize: 14, color: textColor),
           )
         ],
+      ),
+    );
+  }
+}
+
+class MostEffectCountry extends StatelessWidget {
+  final List countryData;
+
+  MostEffectCountry({this.countryData});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: ListView.builder(
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) {
+          return Container(
+            margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Image.network(
+                      countryData[index]['countryInfo']['flag'],
+                      height: 40.0,
+                      width: 40.0,
+                    ),
+                    SizedBox(width: 25.0),
+                    Text(
+                      countryData[index]['country'].toString(),
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                Column(children: [
+                  Text(
+                    'Total Cases: ' + countryData[index]['totalCases'].toString(),
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                  Text(
+                    'Recovered: ' + countryData[index]['totalRecovered'].toString(),
+                    style: TextStyle(color: Colors.green),
+                  ),
+                  Text(
+                    'Deaths: ' + countryData[index]['totalDeaths'].toString(),
+                    style: TextStyle(color: Colors.red),
+                  )
+                ])
+              ],
+            ),
+          );
+        },
+        itemCount: 10,
       ),
     );
   }
