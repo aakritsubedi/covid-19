@@ -1,3 +1,4 @@
+import 'package:covid19/pages/faqs.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -299,7 +300,7 @@ class InfoPanel extends StatelessWidget {
       GestureDetector(
         onTap: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Container()));
+              context, MaterialPageRoute(builder: (context) => FAQPage()));
         },
         child: Container(
             color: primaryBlack,
