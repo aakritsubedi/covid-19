@@ -94,20 +94,20 @@ class StatusTable extends StatelessWidget {
             TableRow(children: [
               TableCell(child: Center(child: Column(
                 children: [
-                  Text('Positive'),
-                  Text(nepalStatistics['tested_positive'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),)
+                  Text(nepalStatistics['tested_positive'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
+                  Text('Positive', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey)),
                 ],
               ))),
               TableCell(child: Center(child: Column(
                 children: [
-                  Text('Negative'),
-                  Text(nepalStatistics['tested_negative'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),)
+                  Text(nepalStatistics['tested_negative'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
+                  Text('Negative', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey)),
                 ],
               ))),
               TableCell(child: Center(child: Column(
                 children: [
-                  Text('Total'),
-                  Text(nepalStatistics['tested_total'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),)
+                  Text(nepalStatistics['tested_total'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
+                  Text('Total', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey)),
                 ],
               ))),
             ]),
@@ -118,20 +118,20 @@ class StatusTable extends StatelessWidget {
           TableRow(children: [
             TableCell(child: Center(child: Column(
               children: [
-                Text('In Isolation'),
-                Text(nepalStatistics['in_isolation'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),)
+                Text(nepalStatistics['in_isolation'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
+                Text('Isolation', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey)),
               ],
             ))),
             TableCell(child: Center(child: Column(
               children: [
-                Text('Recovered'),
-                Text(nepalStatistics['recovered'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),)
+                Text(nepalStatistics['recovered'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
+                Text('Recovered', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey)),
               ],
             ))),
             TableCell(child: Center(child: Column(
               children: [
-                Text('Deaths'),
-                Text(nepalStatistics['deaths'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),)
+                Text(nepalStatistics['deaths'].toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
+                Text('Deaths', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.grey)),
               ],
             ))),
           ]),
