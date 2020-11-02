@@ -1,4 +1,5 @@
 import 'package:covid19/pages/faqs.dart';
+import 'package:covid19/pages/news.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -293,6 +294,11 @@ class MostEffectCountry extends StatelessWidget {
 }
 
 class InfoPanel extends StatelessWidget {
+
+  final Map news;
+
+  InfoPanel({ this.news });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -323,7 +329,7 @@ class InfoPanel extends StatelessWidget {
       GestureDetector(
         onTap: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Container()));
+              context, MaterialPageRoute(builder: (context) => NEWSPage(news: news)));
         },
         child: Container(
             color: primaryBlack,

@@ -28,4 +28,11 @@ class CovidInfo {
     return countryData;
   } 
 
+  static Future<Map> fetchNews() async {
+    http.Response response = await http.get(nepalBaseUrl+'news');
+    Map news = json.decode(response.body);
+
+    return news;
+  } 
+
 }

@@ -17,16 +17,19 @@ class _MyHomePageState extends State<MyHomePage> {
   Map worldwideData;
   Map nepalStatistics;
   List countryData;
+  Map news;
 
   fetchStatisticData() async {
     Map worldWideStatistics = await CovidInfo.fetchWorldWideData();
     Map nepalStatistics = await CovidInfo.fetchNepalData();
     List countryData = await CovidInfo.fetchCountryWiseData();
+    Map news = await CovidInfo.fetchNews();
 
     setState(() {
       this.worldwideData = worldWideStatistics;
       this.nepalStatistics = nepalStatistics;
       this.countryData = countryData;
+      this.news = news;
     });
   }
 
@@ -155,7 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ))
                 : MostEffectCountry(countryData: countryData),
             SizedBox(height: 20.0),
-            InfoPanel(),
+            InfoPanel(news: news),
             SizedBox(height: 20.0),
             Center(
                 child: Text(
