@@ -21,6 +21,14 @@ class CovidInfo {
     return nepalData;
   } 
 
+  static Future<Map> fetchByProvince () async {
+    http.Response response = await http.get(baseUrl+'covid/summary');
+    Map provinceData = json.decode(response.body);
+    provinceData = provinceData['province'];
+
+    return provinceData;
+  } 
+
   static Future<List> fetchCountryWiseData () async {
     http.Response response = await http.get(nepalBaseUrl+'data/world');
     List countryData = json.decode(response.body);

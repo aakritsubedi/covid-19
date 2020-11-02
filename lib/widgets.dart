@@ -189,6 +189,41 @@ class StatusTable extends StatelessWidget {
             ))),
           ]),
         ]),
+        SizedBox(height: 30.0),
+        Table(children: [
+          TableRow(children: [
+            TableCell(
+                child: Center(
+                    child: Column(
+              children: [
+                Text(
+                  nepalStatistics['quarantined'].toString(),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                Text('Qurantined',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey)),
+              ],
+            ))),
+            TableCell(
+                child: Center(
+                    child: Column(
+              children: [
+                Text(
+                  nepalStatistics['tested_rdt'].toString(),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                Text('Total RDT',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey)),
+              ],
+            ))),
+          ]),
+        ]),
       ],
     );
   }
@@ -294,10 +329,9 @@ class MostEffectCountry extends StatelessWidget {
 }
 
 class InfoPanel extends StatelessWidget {
-
   final Map news;
 
-  InfoPanel({ this.news });
+  InfoPanel({this.news});
 
   @override
   Widget build(BuildContext context) {
@@ -328,8 +362,8 @@ class InfoPanel extends StatelessWidget {
       ),
       GestureDetector(
         onTap: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => NEWSPage(news: news)));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => NEWSPage(news: news)));
         },
         child: Container(
             color: primaryBlack,
@@ -395,5 +429,120 @@ class InfoPanel extends StatelessWidget {
             )),
       )
     ]));
+  }
+}
+
+class ProvinceWidget extends StatelessWidget {
+  final Map provinceData;
+
+  ProvinceWidget({this.provinceData});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+        child: Container(
+            child: GridView(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, childAspectRatio: 1),
+                children: [
+              ProvinceCard(
+                  provinceNo: '1',
+                  active: provinceData['cases'][0]['count'].toString(),
+                  recovered: provinceData['recovered'][0]['count'].toString(),
+                  deaths: provinceData['deaths'][0]['count'].toString()),
+              ProvinceCard(
+                  provinceNo: '2',
+                  active: provinceData['cases'][1]['count'].toString(),
+                  recovered: provinceData['recovered'][1]['count'].toString(),
+                  deaths: provinceData['deaths'][1]['count'].toString()),
+              ProvinceCard(
+                  provinceNo: '3',
+                  active: provinceData['cases'][2]['count'].toString(),
+                  recovered: provinceData['recovered'][2]['count'].toString(),
+                  deaths: provinceData['deaths'][2]['count'].toString()),
+              ProvinceCard(
+                  provinceNo: '4',
+                  active: provinceData['cases'][3]['count'].toString(),
+                  recovered: provinceData['recovered'][3]['count'].toString(),
+                  deaths: provinceData['deaths'][3]['count'].toString()),
+              ProvinceCard(
+                  provinceNo: '5',
+                  active: provinceData['cases'][4]['count'].toString(),
+                  recovered: provinceData['recovered'][4]['count'].toString(),
+                  deaths: provinceData['deaths'][4]['count'].toString()),
+              ProvinceCard(
+                  provinceNo: '6',
+                  active: provinceData['cases'][5]['count'].toString(),
+                  recovered: provinceData['recovered'][5]['count'].toString(),
+                  deaths: provinceData['deaths'][5]['count'].toString()),
+              ProvinceCard(
+                  provinceNo: '1',
+                  active: provinceData['cases'][6]['count'].toString(),
+                  recovered: provinceData['recovered'][6]['count'].toString(),
+                  deaths: provinceData['deaths'][6]['count'].toString()),
+            ])));
+  }
+}
+
+class ProvinceCard extends StatelessWidget {
+  final String provinceNo;
+  final String active;
+  final String recovered;
+  final String deaths;
+
+  ProvinceCard({this.provinceNo, this.active, this.recovered, this.deaths});
+
+  @override
+  Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+
+    return Container(
+      margin: EdgeInsets.all(5.0),
+      height: 80.0,
+      width: width / 2,
+      decoration: BoxDecoration(
+          color: Colors.grey[100], borderRadius: BorderRadius.circular(5.0)),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Province $provinceNo',
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                color: Colors.grey[800],
+                letterSpacing: 1.2),
+          ),
+          Text(
+            'Deaths: $deaths',
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+                color: Colors.grey[800]),
+          ),
+          Text(
+            'Cases: $active',
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+                color: Colors.grey[800]),
+          ),
+          Text(
+            'Recovered: $recovered',
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+                color: Colors.grey[800]),
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:covid19/datasource.dart';
+import 'package:covid19/pages/nepal.dart';
 import 'package:flutter/material.dart';
 
 import 'package:covid19/widgets.dart';
@@ -18,18 +19,21 @@ class _MyHomePageState extends State<MyHomePage> {
   Map nepalStatistics;
   List countryData;
   Map news;
+  Map provinceData;
 
   fetchStatisticData() async {
     Map worldWideStatistics = await CovidInfo.fetchWorldWideData();
     Map nepalStatistics = await CovidInfo.fetchNepalData();
     List countryData = await CovidInfo.fetchCountryWiseData();
     Map news = await CovidInfo.fetchNews();
+    Map provinceData = await CovidInfo.fetchByProvince();
 
     setState(() {
       this.worldwideData = worldWideStatistics;
       this.nepalStatistics = nepalStatistics;
       this.countryData = countryData;
       this.news = news;
+      this.provinceData = provinceData;
     });
   }
 
@@ -102,16 +106,45 @@ class _MyHomePageState extends State<MyHomePage> {
                 : WorldWidePanel(worldwideData: worldwideData),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Icon(Icons.pin_drop),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text(
-                      'Nepal',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  Row(
+                    children: [
+                      Icon(Icons.pin_drop_outlined),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Text(
+                          'Nepal',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Nepal(
+                                  nepalStatistics: nepalStatistics,
+                                  provinceData: provinceData)));
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 4.0, horizontal: 8.0),
+                      decoration: BoxDecoration(
+                          color: primaryBlack,
+                          borderRadius: BorderRadius.circular(5.0)),
+                      child: Text(
+                        'View More',
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
                     ),
                   ),
                 ],
