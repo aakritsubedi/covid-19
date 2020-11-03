@@ -510,8 +510,7 @@ class ProvinceCard extends StatelessWidget {
         children: [
           Padding(
               padding: EdgeInsets.symmetric(vertical: 5.0),
-              child: Column(
-                children: [
+              child: Column(children: [
                 Text(
                   'Deaths: $deaths',
                   overflow: TextOverflow.ellipsis,
@@ -552,6 +551,123 @@ class ProvinceCard extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class HospitalCapacity extends StatelessWidget {
+  final hospitalCapacity;
+
+  HospitalCapacity({this.hospitalCapacity});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          margin: EdgeInsets.symmetric(vertical: 5.0),
+          child: Table(children: [
+            TableRow(children: [
+              TableCell(
+                  child: Center(
+                      child: Column(
+                children: [
+                  Text(
+                    hospitalCapacity['beds'].length==0 ? '-' : hospitalCapacity['beds'].toString().split(" ")[0],
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  Text('Beds',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey)),
+                ],
+              ))),
+              TableCell(
+                  child: Center(
+                      child: Column(
+                children: [
+                  Text(
+                    hospitalCapacity['ventilators'].length==0 ? '-' : hospitalCapacity['ventilators'].toString(),
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  Text('Vantilator',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey)),
+                ],
+              ))),
+              TableCell(
+                  child: Center(
+                      child: Column(
+                children: [
+                  Text(
+                    hospitalCapacity['isolation_beds'].length==0 ? '-' : hospitalCapacity['isolation_beds'].toString(),
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  Text('Isolation Beds',
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.grey)),
+                ],
+              ))),
+            ]),
+          ]),
+        ),
+        SizedBox(height: 10.0),
+        Table(children: [
+          TableRow(children: [
+            TableCell(
+                child: Center(
+                    child: Column(
+              children: [
+                Text(
+                  hospitalCapacity['occupied_beds'].length==0 ? '-' : hospitalCapacity['occupied_beds'].toString(),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                Text('Occupied Beds',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey)),
+              ],
+            ))),
+            TableCell(
+                child: Center(
+                    child: Column(
+              children: [
+                Text(
+                  hospitalCapacity['doctors'].length==0 || hospitalCapacity['doctors'].length > 1  ? '-' : hospitalCapacity['doctors'].toString(),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                Text('Doctors',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey)),
+              ],
+            ))),
+            TableCell(
+                child: Center(
+                    child: Column(
+              children: [
+                Text(
+                  hospitalCapacity['nurses'].length==0 ? '-' : hospitalCapacity['nurses'].toString(),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                Text('Nurses',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.grey)),
+              ],
+            ))),
+          ]),
+        ]),
+        SizedBox(height: 15.0),
+      ],
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:covid19/datasource.dart';
+import 'package:covid19/pages/hospitals.dart';
 import 'package:covid19/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
@@ -14,14 +15,12 @@ class Nepal extends StatefulWidget {
 }
 
 class _NepalState extends State<Nepal> {
-
   bool _visibility = true;
 
   final GlobalKey<FabCircularMenuState> fabKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Nepal Statistics'),
@@ -52,16 +51,23 @@ class _NepalState extends State<Nepal> {
               color: primaryBlack,
               child: Padding(
                 padding: const EdgeInsets.symmetric(
-                  vertical: 10.0,
-                  horizontal: 10.0
-                ),
+                    vertical: 10.0, horizontal: 10.0),
                 child: Center(
                   child: Column(
                     children: [
-                      Text('1115(बिहान ६ देखि राती १० सम्म) 1133(चौबीसै घण्टा)', style: TextStyle(color: Colors.white),),
+                      Text(
+                        '1115(बिहान ६ देखि राती १० सम्म) 1133(चौबीसै घण्टा)',
+                        style: TextStyle(color: Colors.white),
+                      ),
                       SizedBox(height: 10.0),
-                      Text('9851-255-834, 9851-255-837 , 9851-255-839', style: TextStyle(color: Colors.white),),
-                      Text('(बिहान ८ - बेलुका ८)', style: TextStyle(color: Colors.white),)
+                      Text(
+                        '9851-255-834, 9851-255-837 , 9851-255-839',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Text(
+                        '(बिहान ८ - बेलुका ८)',
+                        style: TextStyle(color: Colors.white),
+                      )
                     ],
                   ),
                 ),
@@ -81,13 +87,12 @@ class _NepalState extends State<Nepal> {
           fabElevation: 8.0,
           fabIconBorder: CircleBorder(),
           fabColor: primaryBlack,
-          fabOpenIcon: Icon(Icons.menu ,color: Colors.white),
+          fabOpenIcon: Icon(Icons.menu, color: Colors.white),
           fabCloseIcon: Icon(Icons.close, color: Colors.white),
           fabMargin: const EdgeInsets.all(5.0),
           animationDuration: const Duration(milliseconds: 800),
           animationCurve: Curves.easeInOutCirc,
           onDisplayChange: (isOpen) {
-            print(isOpen);
             setState(() {
               _visibility = !isOpen;
             });
@@ -95,7 +100,8 @@ class _NepalState extends State<Nepal> {
           children: <Widget>[
             RawMaterialButton(
               onPressed: () {
-                
+                // Navigator.push(context,
+                // MaterialPageRoute(builder: (context) => ImportantNumber()));
               },
               shape: CircleBorder(),
               padding: const EdgeInsets.all(5.0),
@@ -103,24 +109,21 @@ class _NepalState extends State<Nepal> {
             ),
             RawMaterialButton(
               onPressed: () {
-                
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HospitalPage()));
               },
               shape: CircleBorder(),
               padding: const EdgeInsets.all(5.0),
               child: Icon(Icons.local_hospital_rounded, color: Colors.white),
             ),
             RawMaterialButton(
-              onPressed: () {
-                
-              },
+              onPressed: () {},
               shape: CircleBorder(),
               padding: const EdgeInsets.all(5.0),
               child: Icon(Icons.tv_rounded, color: Colors.white),
             ),
             RawMaterialButton(
-              onPressed: () {
-                
-              },
+              onPressed: () {},
               shape: CircleBorder(),
               padding: const EdgeInsets.all(5.0),
               child: Icon(Icons.info_outline, color: Colors.white),
