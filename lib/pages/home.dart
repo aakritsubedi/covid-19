@@ -1,4 +1,5 @@
 import 'package:covid19/datasource.dart';
+import 'package:covid19/pages/country.dart';
 import 'package:covid19/pages/nepal.dart';
 import 'package:flutter/material.dart';
 
@@ -74,18 +75,24 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ],
                   ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 5.0, horizontal: 10.0),
-                    decoration: BoxDecoration(
-                        color: primaryBlack,
-                        borderRadius: BorderRadius.circular(5.0)),
-                    child: Text(
-                      'Regional',
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => CountryPage()));
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 5.0, horizontal: 10.0),
+                      decoration: BoxDecoration(
+                          color: primaryBlack,
+                          borderRadius: BorderRadius.circular(5.0)),
+                      child: Text(
+                        'Regional',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
+                      ),
                     ),
                   ),
                 ],
@@ -113,7 +120,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   Row(
                     children: [
-                      Image.network('https://disease.sh/assets/img/flags/np.png', height: 30.0, width: 30.0,),
+                      Image.network(
+                        'https://disease.sh/assets/img/flags/np.png',
+                        height: 30.0,
+                        width: 30.0,
+                      ),
                       Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: Text(
