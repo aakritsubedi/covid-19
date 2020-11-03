@@ -23,7 +23,9 @@ class NEWSPage extends StatelessWidget {
                 onTap: () {
                   launch(news['data'][index]['url']);
                 },
-                child: Column(children: [
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         vertical: 10.0, horizontal: 10.0),
@@ -34,10 +36,19 @@ class NEWSPage extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 20.0),
+                    padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 5.0),
                     child: Text(news['data'][index]['summary'],
                         style: TextStyle(color: Colors.grey[700], fontSize: 14),
                         textAlign: TextAlign.justify),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 5.0,
+                      horizontal: 10.0
+                    ),
+                    child: Text(news['data'][index]['source'],
+                        style: TextStyle(color: Colors.grey[700], fontSize: 8),
+                        textAlign: TextAlign.left),
                   )
                 ]),
               ),
