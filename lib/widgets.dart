@@ -1,4 +1,5 @@
 import 'package:covid19/pages/faqs.dart';
+import 'package:covid19/pages/hospitals.dart';
 import 'package:covid19/pages/news.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -374,6 +375,29 @@ class InfoPanel extends StatelessWidget {
               children: [
                 Text(
                   'News',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18),
+                ),
+                Icon(Icons.arrow_forward, color: Colors.white)
+              ],
+            )),
+      ),
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => HospitalPage()));
+        },
+        child: Container(
+            color: primaryBlack,
+            padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 20.0),
+            margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Hospitals List',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,

@@ -3,6 +3,7 @@ import 'package:covid19/pages/hospitals.dart';
 import 'package:covid19/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:fab_circular_menu/fab_circular_menu.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Nepal extends StatefulWidget {
   final Map nepalStatistics;
@@ -117,13 +118,17 @@ class _NepalState extends State<Nepal> {
               child: Icon(Icons.local_hospital_rounded, color: Colors.white),
             ),
             RawMaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                launch('https://nepalcovid.netlify.app/');
+              },
               shape: CircleBorder(),
               padding: const EdgeInsets.all(5.0),
               child: Icon(Icons.tv_rounded, color: Colors.white),
             ),
             RawMaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                launch('https://www.who.int/nepal')
+              },
               shape: CircleBorder(),
               padding: const EdgeInsets.all(5.0),
               child: Icon(Icons.info_outline, color: Colors.white),
