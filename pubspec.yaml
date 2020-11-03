@@ -31,6 +31,7 @@ dependencies:
   url_launcher: ^5.7.8
   shared_preferences: ^0.5.12+2
   http: ^0.12.2
+  fab_circular_menu: ^1.0.0
 
 dev_dependencies:
   flutter_test:
