@@ -127,7 +127,7 @@ class _NepalState extends State<Nepal> {
             ),
             RawMaterialButton(
               onPressed: () {
-                launch('https://www.who.int/nepal')
+                launch('https://www.who.int/nepal');
               },
               shape: CircleBorder(),
               padding: const EdgeInsets.all(5.0),
