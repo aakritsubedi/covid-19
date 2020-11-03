@@ -17,4 +17,4 @@ A **covid19** statistics tracking application that display the world and country
 
 
 #### Download an APK 
-Click [here](./covid19.apk) to download the application. 
+Click [here](https://github.com/aakritsubedi/covid-19/raw/main/covid19.apk) to download the application. 
