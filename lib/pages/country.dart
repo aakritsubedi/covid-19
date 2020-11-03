@@ -1,3 +1,4 @@
+import 'package:covid19/pages/search.dart';
 import 'package:flutter/material.dart';
 
 import 'package:covid19/services/covid.dart';
@@ -37,6 +38,11 @@ class _CountryPageState extends State<CountryPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Country Statistics'),
+        actions: [
+          IconButton(icon: Icon(Icons.search), onPressed: (){
+            showSearch(context: context, delegate: Search(countryData));
+          })
+        ],
       ),
       body: RefreshIndicator(
         onRefresh: fetchData,
@@ -63,9 +69,10 @@ class _CountryPageState extends State<CountryPage> {
                     decoration: BoxDecoration(color: Colors.white, boxShadow: [
                       BoxShadow(
                           color: Colors.grey[100],
-                          blurRadius: 10,
-                          offset: Offset(0, 10))
-                    ]),
+                          blurRadius: 1.0,
+                          offset: Offset(0, 2)),
+                    ],
+                    borderRadius: BorderRadius.circular(5.0)),
                     child: Row(
                       children: [
                         Container(

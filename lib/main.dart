@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'CircularStd',
-        primaryColor: primaryBlack
+        primaryColor: primaryBlack,
+        // brightness: Brightness.dark
       ),
       home: MyHomePage(title: 'Covid-19 Tracker App'),
     );
