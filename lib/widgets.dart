@@ -1,6 +1,7 @@
 import 'package:covid19/pages/faqs.dart';
 import 'package:covid19/pages/hospitals.dart';
 import 'package:covid19/pages/news.dart';
+import 'package:covid19/pages/vaccination.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -20,6 +21,35 @@ class Quotes extends StatelessWidget {
             color: Colors.orange[800],
             fontWeight: FontWeight.w500,
             fontSize: 16.0),
+      ),
+    );
+  }
+}
+
+class VaccineInfo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 125,
+      alignment: Alignment.center,
+      padding: EdgeInsets.all(10.0),
+      color: vaccineContainer,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            DataSource.vaccine,
+            style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+                fontSize: 16.0),
+          ),
+          RaisedButton(onPressed: () {
+            Navigator.push(context,
+              MaterialPageRoute(builder: (context) => VaccinationPage()));
+          }, 
+          child: Text('Request Vaccination'))
+        ],
       ),
     );
   }
@@ -597,7 +627,9 @@ class HospitalCapacity extends StatelessWidget {
                       child: Column(
                 children: [
                   Text(
-                    hospitalCapacity['beds'].length==0 ? '-' : hospitalCapacity['beds'].toString().split(" ")[0],
+                    hospitalCapacity['beds'].length == 0
+                        ? '-'
+                        : hospitalCapacity['beds'].toString().split(" ")[0],
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                   Text('Beds',
@@ -612,7 +644,9 @@ class HospitalCapacity extends StatelessWidget {
                       child: Column(
                 children: [
                   Text(
-                    hospitalCapacity['ventilators'].length==0 ? '-' : hospitalCapacity['ventilators'].toString(),
+                    hospitalCapacity['ventilators'].length == 0
+                        ? '-'
+                        : hospitalCapacity['ventilators'].toString(),
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                   Text('Vantilator',
@@ -627,7 +661,9 @@ class HospitalCapacity extends StatelessWidget {
                       child: Column(
                 children: [
                   Text(
-                    hospitalCapacity['isolation_beds'].length==0 ? '-' : hospitalCapacity['isolation_beds'].toString(),
+                    hospitalCapacity['isolation_beds'].length == 0
+                        ? '-'
+                        : hospitalCapacity['isolation_beds'].toString(),
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                   Text('Isolation Beds',
@@ -648,7 +684,9 @@ class HospitalCapacity extends StatelessWidget {
                     child: Column(
               children: [
                 Text(
-                  hospitalCapacity['occupied_beds'].length==0 ? '-' : hospitalCapacity['occupied_beds'].toString(),
+                  hospitalCapacity['occupied_beds'].length == 0
+                      ? '-'
+                      : hospitalCapacity['occupied_beds'].toString(),
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 Text('Occupied Beds',
@@ -663,7 +701,10 @@ class HospitalCapacity extends StatelessWidget {
                     child: Column(
               children: [
                 Text(
-                  hospitalCapacity['doctors'].length==0 || hospitalCapacity['doctors'].length > 1  ? '-' : hospitalCapacity['doctors'].toString(),
+                  hospitalCapacity['doctors'].length == 0 ||
+                          hospitalCapacity['doctors'].length > 1
+                      ? '-'
+                      : hospitalCapacity['doctors'].toString(),
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 Text('Doctors',
@@ -678,7 +719,9 @@ class HospitalCapacity extends StatelessWidget {
                     child: Column(
               children: [
                 Text(
-                  hospitalCapacity['nurses'].length==0 ? '-' : hospitalCapacity['nurses'].toString(),
+                  hospitalCapacity['nurses'].length == 0
+                      ? '-'
+                      : hospitalCapacity['nurses'].toString(),
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 Text('Nurses',

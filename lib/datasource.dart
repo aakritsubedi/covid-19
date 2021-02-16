@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 
 Color primaryBlack = Color(0xFF152238);
 Color quoteContainer = Colors.orange[100];
+Color vaccineContainer = Colors.blue[200];
 
 class DataSource {
   static String quotes =
       "Nothing in the life is to be feared, it is only to be understood. Now is the time understand more, so that we fear less.";
+
+  static String vaccine = "Nepal launched Covid-19 immunisation after India sent vaccines. India sent 10 lakh doses of Covishield vaccines to Nepal as a gift.";
 
   static List questionAnswers = [
     {
