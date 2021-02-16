@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
+
+import '../widgets.dart';
 
 class VaccinationPage extends StatefulWidget {
   @override
@@ -6,29 +9,112 @@ class VaccinationPage extends StatefulWidget {
 }
 
 class _VaccinationPageState extends State<VaccinationPage> {
-  @override
-  void initState() {
-    super.initState();
+  bool isHTML = true;
+  String body;
+  final _fullNameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _contactNoController = TextEditingController();
+  final _addressController = TextEditingController();
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  myTextFormField(controller, hintText, isPassword, isEmail) {
+    return Padding(
+      padding: EdgeInsets.all(8.0),
+      child: TextFormField(
+        decoration: InputDecoration(
+          hintText: hintText,
+          contentPadding: EdgeInsets.all(15.0),
+          border: InputBorder.none,
+          filled: true,
+          fillColor: Colors.grey[200],
+        ),
+        obscureText: isPassword ? true : false,
+        keyboardType: isEmail ? TextInputType.emailAddress : TextInputType.text,
+      ),
+    );
+  }
+
+  Future<void> send() async {
+    body = 'Hello ${_fullNameController.text}, <br/>';
+    body +=
+        '<p> We received your request. Our team is working to submit your application to nearest COVID vaccination points(nearby ${_addressController.text}). We will let you know the progess soon. If you have any queries feel free to reply this email. </p>';
+    body +=
+        '<p>Also go through the following links that provides information about the COVID vaccine, procedure and other related information.</p>';
+    final Email email = Email(
+      body: body,
+      subject: 'COVID vaccination request',
+      recipients: [_emailController.text, 'aakritsubedi9@gmail.com'],
+      isHTML: isHTML,
+    );
+
+    String platformResponse;
+
+    try {
+      await FlutterEmailSender.send(email);
+      platformResponse = 'success';
+    } catch (error) {
+      platformResponse = error.toString();
+    }
+
+    if (!mounted) return;
+
+    _scaffoldKey.currentState.showSnackBar(SnackBar(
+      content: Text(platformResponse),
+    ));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('COVID Vaccine'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('This is vaccination page.'),
-            Text('We will add a form to request vaccination.'),
-            SizedBox(height: 10.0),
-            Text('Your request will be sent as an email to concern authority'),
-            Text('and receipt to you in your email address.')
-          ],
+        appBar: AppBar(
+          title: Text('COVID Vaccine'),
         ),
-      ),
-    );
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Quotes(),
+              SizedBox(height: 15.0),
+              Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10.0),
+                  child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'COVID Vaccination Request Form',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18.0),
+                        ),
+                        myTextFormField(
+                            _fullNameController, 'Full Name', false, false),
+                        myTextFormField(_emailController, 'Email', false, true),
+                        myTextFormField(
+                            _addressController, 'Address', false, false),
+                        myTextFormField(
+                            _contactNoController, 'Contact No.', false, false),
+                        RaisedButton(
+                          onPressed: () {},
+                          child: Text('Submit'),
+                        ),
+                        SizedBox(height: 5.0),
+                        Divider(height: 1.0),
+                        SizedBox(height: 5.0),
+                        Text(
+                            'Nepal started vaccinating health and security workers against Covid-19 on Wednesday, using some of the 1 million doses of the AstraZeneca vaccines donated by India on 20 January.'),
+                        Text(
+                            'The Health Ministry has prepared a list of 430,000 health personnel who will get their first dose this week. Also included will be senior citizens, police and army as well as female community health volunteers all over the country.'),
+                        SizedBox(height: 10.0),
+                        Center(
+                            child: Text(
+                          'WE ARE TOGETHER IN THE FIGHT',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1.4,
+                              color: Colors.grey[800]),
+                        )),
+                        SizedBox(height: 20.0),
+                      ]))
+            ],
+          ),
+        ));
   }
 }
