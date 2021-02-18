@@ -8,7 +8,8 @@ class DataSource {
   static String quotes =
       "Nothing in the life is to be feared, it is only to be understood. Now is the time understand more, so that we fear less.";
 
-  static String vaccine = "Nepal launched Covid-19 immunisation after India sent vaccines. India sent 10 lakh doses of Covishield vaccines to Nepal as a gift.";
+  static String vaccine =
+      "Nepal launched Covid-19 immunisation after India sent vaccines. India sent 10 lakh doses of Covishield vaccines to Nepal as a gift.";
 
   static List questionAnswers = [
     {
@@ -67,7 +68,63 @@ class DataSource {
       "question":
           "Are antibiotics effective in preventing or treating the COVID-19?",
       "answer":
+          "Millions of people in the United States have received COVID-19 vaccines, and these vaccines have undergone the most intensive safety monitoring in U.S. history. This monitoring includes using both established and new safety monitoring systems to make sure that COVID-19 vaccines are safe."
+    },
+  ];
+
+  static List vaccineFAQ = [
+    {
+      "question": "Are Covid-19 vaccines safe?",
+      "answer":
           "No. Antibiotics do not work against viruses, they only work on bacterial infections. COVID-19 is caused by a virus, so antibiotics do not work. Antibiotics should not be used as a means of prevention or treatment of COVID-19. They should only be used as directed by a physician to treat a bacterial infection. "
+    },
+    {
+      "question": "What are the most common side effects after getting a COVID-19 vaccine?",
+      "answer": "After getting vaccinated, you may have some side effects, which are normal signs that your body is building protection. The most common side effects are pain and swelling in the arm where you received the shot. In addition, you may have fever, chills, tiredness, and headache. These side effects may affect your ability to do daily activities, but they should go away in a few days. Learn more about what to expect after getting a COVID-19 vaccine."
+    },
+    {
+      "question": "If I am pregnant, can I get a COVID-19 vaccine?",
+      "answer": "Yes. If you are pregnant, you may choose to be vaccinated when it’s available to you. There is currently no evidence that antibodies formed from COVID-19 vaccination cause any problem with pregnancy, including the development of the placenta. People who are trying to become pregnant now or who plan to try in the future may receive the COVID-19 vaccine when it becomes available to them. There is no evidence that fertility problems are a side effect of any vaccine, including COVID-19 vaccines. There is no routine recommendation for taking a pregnancy test before you get a COVID-19 vaccine. If you have questions about getting vaccinated, talking with a healthcare provider may might help you make an informed decision. Learn more at vaccination considerations for people who are pregnant or breastfeeding."
+    },
+    {
+      "question": "How long does protection from a COVID-19 vaccine last?",
+      "answer": "We don’t know how long protection lasts for those who are vaccinated. What we do know is that COVID-19 has caused very serious illness and death for a lot of people. If you get COVID-19, you also risk giving it to loved ones who may get very sick. Getting a COVID-19 vaccine is a safer choice. Experts are working to learn more about both natural immunity and vaccine-induced immunity. CDC will keep the public informed as new evidence becomes available."
+    },
+    {
+      "question": "What are the ingredients in COVID-19 vaccines?",
+      "answer": "The ingredients in currently available COVID-19 vaccines include mRNA, lipids, salts, sugars, and buffers. Buffers help maintain the stability of the pH solution. Vaccine ingredients can vary by manufacturer. To learn more about the ingredients in authorized COVID-19 vaccines, see articles on Information about the Pfizer-BioNTech COVID-19 vaccine and Information about the Moderna COVID-19 vaccine."
+    },
+    {
+      "question": "What is the latest news on Covid vaccine?",
+      "answer":
+          "Latest news: On February 2, the medical journal The Lancet published the results of a phase three trial in Moscow that found the Sputnik V vaccine is safe and 91.6-percent effective in preventing COVID-19."
+    },
+    {
+      "question": "Can I drink after Covid vaccine?",
+      "answer":
+          "VERIFY: You don't need to avoid alcohol after getting the COVID-19 vaccine. Some people claim drinking alcohol will negatively affect your body's response to the coronavirus vaccine. Experts say there is no evidence to support this."
+    },
+    {
+      "question": "Who is paying for the COVID-19 vaccines?",
+      "answer": "The federal government is providing the vaccine free of charge to all people living in the United States. Vaccination providers can be reimbursed for vaccine administration fees by the patient’s public or private insurance company or, for uninsured patients, by the Health Resources and Services Administration’s Provider Relief Fund. No one can be denied a vaccine if they are unable to pay a vaccine administration fee.​"
+    },
+    {
+      "question": "Can I get vaccinated against COVID-19 while I am currently sick with COVID-19?",
+      "answer": "No. People with COVID-19 who have symptoms should wait to be vaccinated until they have recovered from their illness and have met the criteria for discontinuing isolation; those without symptoms should also wait until they meet the criteria before getting vaccinated. This guidance also applies to people who get COVID-19 before getting their second dose of vaccine."
+    },
+    {
+      "question": "Does the Pfizer vaccine prevent Covid?",
+      "answer":
+          "The Pfizer-BioNTech COVID-19 Vaccine is authorized for use under an Emergency Use Authorization (EUA) for active immunization to prevent coronavirus disease 2019 (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) in individuals 16 years of age and older."
+    },
+    {
+      "question": "Do you have to wear a mask after Covid vaccine?",
+      "answer": "Yes. The vaccine does not offer 100% protection."
+    },
+    {
+      "question": "Can masks prevent the transmission of COVID-19?",
+      "answer":
+          "Masks should be used as part of a comprehensive strategy of measures to suppress transmission and save lives; the use of a mask alone is not sufficient to provide an adequate level of protection against COVID-19."
     }
   ];
 }

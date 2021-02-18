@@ -38,7 +38,6 @@ class _VaccinationPageState extends State<VaccinationPage> {
         '<p> We received your request. Our team is working to submit your application to nearest COVID vaccination points(nearby ${_addressController.text}). We will let you know the progess soon. If you have any queries feel free to reply this email. </p>';
     body +=
         '<p>Also go through the following links that provides information about the COVID vaccine, procedure and other related information.</p>';
-
   }
 
   @override
@@ -81,6 +80,8 @@ class _VaccinationPageState extends State<VaccinationPage> {
                         Text(
                             'The Health Ministry has prepared a list of 430,000 health personnel who will get their first dose this week. Also included will be senior citizens, police and army as well as female community health volunteers all over the country.'),
                         SizedBox(height: 10.0),
+                        VaccinationFAQ(),
+                        SizedBox(height: 20.0),
                         Center(
                             child: Text(
                           'WE ARE TOGETHER IN THE FIGHT',

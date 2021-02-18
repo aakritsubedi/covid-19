@@ -71,7 +71,6 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               // Quotes(),
               VaccineInfo(),
-              Podcast(),
               Padding(
                 padding: const EdgeInsets.symmetric(
                     vertical: 10.0, horizontal: 10.0),
@@ -220,6 +219,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ))
                   : MostEffectCountry(countryData: countryData),
+              SizedBox(height: 20.0),
+              Podcast(),
               SizedBox(height: 20.0),
               InfoPanel(news: news),
               SizedBox(height: 20.0),
