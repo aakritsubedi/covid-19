@@ -50,4 +50,11 @@ class CovidInfo {
     return hospitals['data'];
   } 
 
+  static Future<List> fetchPodcast() async {
+    http.Response response = await http.get(nepalBaseUrl+'podcasts');
+    Map podcast = json.decode(response.body);
+    print(podcast);
+    return podcast['data'];
+  } 
+
 }

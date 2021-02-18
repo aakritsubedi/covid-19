@@ -1,6 +1,7 @@
 import 'package:covid19/datasource.dart';
 import 'package:covid19/pages/country.dart';
 import 'package:covid19/pages/nepal.dart';
+import 'package:covid19/pages/podcast.dart';
 import 'package:flutter/material.dart';
 
 import 'package:covid19/widgets.dart';
@@ -70,6 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               // Quotes(),
               VaccineInfo(),
+              Podcast(),
               Padding(
                 padding: const EdgeInsets.symmetric(
                     vertical: 10.0, horizontal: 10.0),

@@ -44,11 +44,12 @@ class VaccineInfo extends StatelessWidget {
                 fontWeight: FontWeight.w500,
                 fontSize: 16.0),
           ),
-          RaisedButton(onPressed: () {
-            Navigator.push(context,
-              MaterialPageRoute(builder: (context) => VaccinationPage()));
-          }, 
-          child: Text('Request Vaccination'))
+          RaisedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => VaccinationPage()));
+              },
+              child: Text('Request Vaccination'))
         ],
       ),
     );
@@ -738,21 +739,22 @@ class HospitalCapacity extends StatelessWidget {
     );
   }
 }
+
 class MyTextFormField extends StatelessWidget {
   final String hintText;
   final Function validator;
   final Function onSaved;
   final bool isPassword;
   final bool isEmail;
-  
-MyTextFormField({
+
+  MyTextFormField({
     this.hintText,
     this.validator,
     this.onSaved,
     this.isPassword = false,
     this.isEmail = false,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -774,3 +776,57 @@ MyTextFormField({
   }
 }
 
+class MyPodcast extends StatelessWidget {
+  final String link;
+  final String title;
+  final String summary;
+
+  MyPodcast({this.link, this.title, this.summary});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          GestureDetector(
+              onTap: () {
+                launch(link);
+              },
+              child:
+                  Text(title, style: TextStyle(fontWeight: FontWeight.bold))),
+          Text(summary)
+        ],
+      ),
+    );
+  }
+}
+
+class Textbox extends StatelessWidget {
+  final String title;
+  final String link;
+
+  Textbox({this.title, this.link});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10.0),
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.black,
+            width: 1,
+          ),
+          borderRadius: BorderRadius.circular(4),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GestureDetector(
+              onTap: () {
+                launch(link);
+              },
+              child: Text(title)),
+        ));
+  }
+}
