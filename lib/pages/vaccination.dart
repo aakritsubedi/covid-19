@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_email_sender/flutter_email_sender.dart';
 
 import '../widgets.dart';
 
@@ -16,7 +15,6 @@ class _VaccinationPageState extends State<VaccinationPage> {
   final _contactNoController = TextEditingController();
   final _addressController = TextEditingController();
 
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   myTextFormField(controller, hintText, isPassword, isEmail) {
     return Padding(
       padding: EdgeInsets.all(8.0),
@@ -40,27 +38,7 @@ class _VaccinationPageState extends State<VaccinationPage> {
         '<p> We received your request. Our team is working to submit your application to nearest COVID vaccination points(nearby ${_addressController.text}). We will let you know the progess soon. If you have any queries feel free to reply this email. </p>';
     body +=
         '<p>Also go through the following links that provides information about the COVID vaccine, procedure and other related information.</p>';
-    final Email email = Email(
-      body: body,
-      subject: 'COVID vaccination request',
-      recipients: [_emailController.text, 'aakritsubedi9@gmail.com'],
-      isHTML: isHTML,
-    );
 
-    String platformResponse;
-
-    try {
-      await FlutterEmailSender.send(email);
-      platformResponse = 'success';
-    } catch (error) {
-      platformResponse = error.toString();
-    }
-
-    if (!mounted) return;
-
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
-      content: Text(platformResponse),
-    ));
   }
 
   @override
@@ -92,7 +70,7 @@ class _VaccinationPageState extends State<VaccinationPage> {
                         myTextFormField(
                             _contactNoController, 'Contact No.', false, false),
                         RaisedButton(
-                          onPressed: () {},
+                          onPressed: () => send(),
                           child: Text('Submit'),
                         ),
                         SizedBox(height: 5.0),
